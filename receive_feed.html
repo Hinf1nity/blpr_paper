@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Video Stream</title>
+</head>
+<body>
+    <h1>WebSocket Video Stream</h1>
+    <img id="video_feed" alt="Camera Feed">
+    
+    <script>
+        const ws = new WebSocket('ws://raspguill.local:8765');
+        const videoFeed = document.getElementById('video_feed');
+
+        ws.onmessage = (event) => {
+            // Update the image source with the received base64 data
+            videoFeed.src = 'data:image/jpeg;base64,' + event.data;
+        };
+    </script>
+</body>
+</html>
