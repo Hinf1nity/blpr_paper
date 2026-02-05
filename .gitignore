@@ -1,0 +1,8 @@
+img_test/
+img_test2/
+dataset_2_dividido_por_luz/
+datasets/
+wandb/
+yolo_training/
+runs/
+*.pt

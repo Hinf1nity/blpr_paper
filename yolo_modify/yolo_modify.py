@@ -8,14 +8,12 @@ if __name__ == '__main__':
     wandb.login(key='445c46b947567ded092431c9f5908b737d9843e9')
     # wandb.init(project="yolo_training", name="yolov8l_n1")
     torch.cuda.empty_cache()
-    model = YOLO('yolov8n.pt')
+    model = YOLO('yolov8n.yaml')
     print(model)
     # model.load('lpr_modify.pt')
-    # add_wandb_callback(model, enable_model_checkpointing=True)
     model.train(data='datasets/lpr_dataset/data.yaml', epochs=100,
-                batch=20, save=True, name='yolo8n_modified', project='yolo_training')
+                batch=15, save=True, name='yolo8n_modified_interconnected_layers', project='yolo_training')
     model.val()
-    # wandb.finish()
     model.export()
     # model = YOLO('runs/detect/train3/weights/best.pt')  # custom model n1
     # # custom model n2
